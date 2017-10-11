@@ -1,6 +1,297 @@
-<html>
-<body>
-<h1>Kamlesh Rock ...</h1>
-<p>hi this is test</p>
-</body>
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Exallion Enterprise Solutions | Solutions with impact</title>
+  <meta name="description" content="We partner with our clients to understand their problems and deliver high impact technical solutions, using best practices in Agile development. Have a business challenge? Feel free to engage us!">
+  <link rel="shortcut icon" href="images/favicon.png" />
+  <link href="css/application.css" media="screen" rel="stylesheet" type="text/css" />
+  <link href="https://fonts.googleapis.com/css?family=Arimo:400,400i,700,700i" rel="stylesheet">
+  <script src="js/jquery.min.js" type="text/javascript"></script>
+  <!--<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>-->
+  <script type="text/javascript">
+    var target = window.location.hash;
+    if (target.length > 0) {
+      var navOffset = $('nav.navbar').height();
+      var pageOffset = $(target).offset();
+
+      if (pageOffset) {
+        $('html, body').animate({
+          scrollTop: (pageOffset.top - navOffset)
+        }, 700, function () {
+          return window.history.pushState(null, null, target);
+        });
+      }
+    }
+	
+	$(document).ready(function(){
+		$("#contactUsId").click(function(){
+				
+			var customer_name = $("#customer_name").val();
+			var customer_email = $("#customer_email").val();
+			var customer_message = $("#customer_message").val();
+			
+			$.ajax({
+				type: 'POST',
+				url: "http://projectshub.in/mailapi.php",
+				data:{
+					"customer_name":customer_name,
+					"customer_email":customer_email,
+					"customer_message":customer_message
+				},
+				dataType: "jsonp",
+				success: function (response) {
+				   
+				}
+			});
+				   $('.alert-success').show();
+				   setTimeout(function(){ $('.alert-success').hide(); }, 2000);
+		});
+	});
+  </script>
+</head>
+
+<body class="Home page" data-spy="scroll" data-target="#navbar-spy-container" data-offset="60">
+<div class="alert alert-success" role="alert" style="display:none;"><span class="alert-message">successfully saved</span>  <i class="fa fa-close pull-right"></i></div>
+  <div id="navbar-spy-container">
+    <nav class="navbar fixed-top navbar-toggleable-md navbar-light bg-faded transy">
+      <div class="container">
+        <a href="javascript:void(0)" class="navbar-toggler navbar-toggler-left">
+        <i class="fa toggle-icon"></i>
+      </a>
+        <a href="#" class="go-to-top navbar-brand nav-link">
+            <img src="images/exa-logo.svg" class="logo-img">
+          </a>
+        <div class="navbar-collapse ws-navbar">
+          <ul class="navbar-nav ml-auto">
+            <li class="nav-item">
+              <a class="nav-link" href="#approach" data-link-url="/#approach">Our approach</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#services" data-link-url="/#services">What we do?</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#team" data-link-url="/#team">Team</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#philosophy" data-link-url="/#philosophy">Philosophy</a>
+            </li>
+            <li class="nav-item hidden-xl-down">
+              <a class="nav-link careers" href="javascript:;;">Join us</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link btn btn-outline-secondary contact-link" href="#contact" data-link-url="/#contact">Engage us</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+  </div>
+
+
+  <div id="#home-home" class="header-hero text-center noselect">
+      <video autoplay width="100%" loop poster="images/coding.png">
+          <source src="images/video.mp4" type="video/mp4">
+          <source src="images/video.mp4" type="video/ogg">
+          <img src="images/coding.png">
+        </video>
+    <div class="container-fluid content-on-video">
+      <h1 class="display-2 onscreen fromBottom">
+        <span class="skill">discuss</span>
+        <span class="skill">define</span>
+        <span class="skill">deliver</span>
+      </h1>
+      <p class="hero-desc ml-auto mr-auto onscreen-delay fromBottom">
+        We partner with our clients to understand their problems and deliver high impact technical solutions, using best practices in Agile development. 
+        <span class="block-on-tablet-up">
+            Have a business challenge? Feel free to engage us!
+        </p>
+        <a class="btn btn-outline-primary hero-cta" data-scroll href="#services">See What We Do</a>
+      </div>
+    </div>
+  <section id="approach" class="home-section our-approach">
+    <div class="container">
+      <div class="approach-content">
+        <h2 class="section-title">Our Approach</h2>
+        <p>Exallion is a  solutions and services provider recognized widely for its innovative solutions. We have been able to help our customer achieve game-changing results through our solutions that entirely reflect our rich industry experience with cutting-edge technologies.</p>
+		<p>We excel in solving business problems through technological interventions. Our technical excellence and exquisite understanding of customer problems clubbed with agile development and delivery practices help our customers to focus on their business rather than the solutions.</p>
+        <a class="btn btn-outline-primary" data-scroll href="#contact">Talk to us</a>
+      </div>
+    </div>
+  </section>
+  
+  <section id="services" class="home-section services">
+    <div class="container">
+      <h2 class="section-title">What we do!</h2>
+      <div class="row">
+        <div class="col col-md-6 col-12">
+          <div class="service-item">
+            <img src="images/coding-icon.svg" class="icon" >
+            <h4 class="item-title">
+              Enterprise solutioning - Web and Mobile
+            </h4>
+            <p class="item-content">
+              Our principal is to deliver the solution to the problems our customer face. We not only deliver the solutions but keep their innovative essence alive. Designing and establishing appropriate scalable technical architectures from the outset is key to support the future growth of the business. Our technological potential includes full stack development of the solutions including fully responsive, native, highly secure, and light weight frontend loosely coupled with distributed and highly available backend  systems.  We - usually - avoid just-in-time optimizations and premature overdesigning; it helps us avoid unnecessary complexity and delays in delivery.
+            </p>
+          </div>
+        </div>
+        <div class="col col-md-6 col-12">
+          <div class="service-item">
+            <img src="images/agile-icon.svg" class="icon" >
+            <h4 class="item-title">
+              Transformation underpinned by Agile Practices
+            </h4>
+            <p class="item-content">
+              Our projects follow an iterative agile approach, using a combination of best practices that we have established over years of working with different teams. Naturally, client teams working with us are exposed to our approach; we can also specifically engage with clients to review and improve their internal processes, both on the engineering and product management side.
+            </p>
+          </div>
+        </div>
+        <div class="col col-md-6 col-12">
+          <div class="service-item">
+            <img src="images/strategy-icon.svg" class="icon" >
+            <h4 class="item-title">
+              Product Philosophy
+            </h4>
+            <p class="item-content">
+              The understanding of our client’s vision, the business drivers they want to impact, and a product’s core hypothesis, allows us to advise on approaches to maximize return on investment.  This includes a combination of ‘what to build’ and ‘how to release it’ in order to maximize value and most rapidly learn from customer insights.
+            </p>
+          </div>
+        </div>
+        <div class="col col-md-6 col-12">
+          <div class="service-item">
+            <img src="images/dev-ops-icon.svg" class="icon" >
+            <h4 class="item-title">
+              Infrastructure Consulting
+            </h4>
+            <p class="item-content">
+              An integral part of any technology DNA is the ability to help customers achieve the craved turnaround time from their solutions through our unique deployment strategy solutions. Besides keeping our solutions light-weight, we underpin them by putting a highly secure and highly available infra - literally a cherry on the cake.  We feel unparallel pride on being experts and champions for continuous integration and continuous delivery.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  <section id="team" class="home-section our-team">
+    <div class="team-img onscreen-background">
+    </div>
+    <div class="our-team-content">
+      <h2 class="section-title">Our Team</h2>
+      <img src="images/map.png" class="map onscreen onscreen-delay fromBottom" >
+      <div class="row">
+        <div class="col-12 col-md-6">
+          <p>We're a crisp yet highly talented team of <b>30+ technologists</b> who are passionate about delivering great products to growing businesses. We're driven by a constant need to improve, learn, and share - whether that's a new skill, a new technology, or a new way of seeing.</p>
+        </div>
+        <div class="col-12 col-md-6">
+          <p>We have our development centers in <b>Gurgaon</b> & <b>Jaipur</b> and team members are located across <b>3 continents</b> around the world. </p>
+          <p>Interested in joining the team?</p>
+          <p><a class="btn btn-outline-primary openings-link" data-scroll="" href="#contact" data-link-url="/#contact">Drop us a mail</a></p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="philosophy" class="home-section philosophy">
+    <div class="container">
+      <h2 class="section-title">Our Philosophy</h2>
+      <div class="row">
+        <div class="col col-lg-3 col-md-6 col-12">
+          <div class="philosophy-item">
+            <img src="images/define-icon.svg" class="icon" >
+            <h4 class="item-title">
+              Discuss, Define, Deliver
+            </h4>
+            <p class="item-content">
+              ‘Unlike others, we strongly believe in spending more time in discussing and understanding the problem than inventing a unfledged or strayed solution. Our unparallel ways of defining the problem statement works as a lighthouse for us. We, ourselves, iteratively evolve the solution that are significantly data-driven and test it against all the odds, validate its firmness against customer insights, and then deliver it.
+            </p>
+          </div>
+        </div>
+        <div class="col col-lg-3 col-md-6 col-12">
+          <div class="philosophy-item">
+            <img src="images/technology-icon.svg" class="icon" >
+            <h4 class="item-title">
+              Technical Excellence
+            </h4>
+            <p class="item-content">
+              Our motto: never overengineer, but always design for the future. Scaling a technology is an art, a science - and we excel into it. We believe in understanding a system's performance requirements and delivering the most simple, robust, and maintainable solution to exceed these.
+            </p>
+          </div>
+        </div>
+        <div class="col col-lg-3 col-md-6 col-12">
+          <div class="philosophy-item">
+            <img src="images/quality-icon.svg" class="icon" >
+            <h4 class="item-title">
+              Killing a BUG
+            </h4>
+            <p class="item-content">
+              A BUG is something that can force you to sleep with your eyes opened. We are a team of self-driven agile developers that are fully equipped with the skills of making a software fully automated in terms of testing. To give the solution a real taste of testing, we have specialists who know where to find a bug - be it on functional, performance side or any other. Breaking an application is an art, our test team rule it.
+            </p>
+          </div>
+        </div>
+        <div class="col col-lg-3 col-md-6 col-12">
+          <div class="philosophy-item">
+            <img src="images/collaborate-icon.svg" class="icon" >
+            <h4 class="item-title">
+              Transparent Collaboration
+            </h4>
+            <p class="item-content">
+              We are a flat organization, so as client/partner you can reach out to anyone in the organization you want. We use the principles of Agile to help our clients build the right product and in a way that allows for regularly releasable increments.  Progress is presented every sprint, with shared burndowns for 100% transparency.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  <section id="contact" class="home-section contact-us">
+    <div class="contact-us-content">    
+      <h2 class="section-title">Help us reach you</h2>
+      <h3 class="sub-title limit-width">
+        Have a business challenge? Feel free to engage us.
+      </h3>
+      <p class="reach-copy">
+        Send us an email at&nbsp;<a rel="nofollow" href="mailto:hello@exallion.com" title="Link: mailto:hello@exallion.com">hello@exallion.com</a> or use the contact form below.
+      </p>
+      <div class="contact-form limit-width">
+          <!--<form action="mail.php"
+          method="POST">-->
+          <div class="form-group">
+            <input type="text" name="name" id="customer_name" required class="form-control" placeholder="Name" />
+          </div>
+          <div class="form-group">
+            <input type="email" name="email" id="customer_email" required class="form-control" placeholder="Email" />
+          </div>
+          <div class="form-group">
+            <textarea name="message" required id="customer_message" class="form-control" placeholder="Tell us how we can help you?"></textarea>
+          </div>
+          <!--<input type="submit" class="btn btn-outline-primary btn-block btn-lg" value="">-->
+           <a class="btn btn-outline-primary btn-block btn-lg" id="contactUsId" href="javascript:void(0);">Contact Us</a> 
+        <!--</form>-->
+      </div>
+    </div>
+    <div class="contact-img onscreen-background">
+    </div>
+  </section>
+    <footer class="footer">
+  <div class="container">
+    <a href="#" class="go-to-top">
+      <i class="fa fa-angle-up" aria-hidden="true"></i>
+    </a>
+    <div>© 2017 Exallion</div>
+    <div class="social-media"> 
+      <a href="https://www.facebook.com/exallion.exallion.7" target="_blank"> <i class="fa fa-facebook"></i> </a>
+      <a href="https://twitter.com/exallionteam" target="_blank"> <i class="fa fa-twitter"></i> </a>
+      <a href="javascript:;;" target="_blank"> <i class="fa fa-linkedin"></i> </a>
+    </div>
+  </div>
+</footer>
+    <script src="js/tether.min.js" type="text/javascript" ></script>
+    <script src="js/bootstrap.min.js" type="text/javascript" ></script>
+    <script src="js/on-screen.umd.min.js" type="text/javascript" ></script>
+    <script src="js/application.js" type="text/javascript" ></script>
+  </body>
 </html>
